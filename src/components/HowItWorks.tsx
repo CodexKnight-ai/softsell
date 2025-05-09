@@ -29,7 +29,7 @@ const Step: React.FC<StepProps> = ({ icon, title, description, stepNumber }) => 
   return (
     <motion.div
       ref={stepRef}
-      className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 relative glow-cursor-container overflow-visible"
+      className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col h-full theme-transition"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
@@ -39,7 +39,7 @@ const Step: React.FC<StepProps> = ({ icon, title, description, stepNumber }) => 
       }}
       viewport={{ once: true, margin: "-50px" }}
       whileHover={{
-        scale: 1.03,
+        scale: 1.02,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -157,7 +157,7 @@ const HowItWorks: React.FC = () => {
   );
 
   return (
-    <section id="how-it-works" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <section id="how-it-works" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <motion.div

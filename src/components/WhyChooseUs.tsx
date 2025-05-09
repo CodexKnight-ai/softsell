@@ -51,17 +51,17 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   return (
     <motion.div
       ref={cardRef}
-      className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 relative glow-cursor-container overflow-visible group"
+      className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col h-full theme-transition"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.6,
-        delay: index * 0.15,
+        duration: 0.5,
+        delay: index * 0.2,
         ease: "easeOut"
       }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-50px" }}
       whileHover={{
-        scale: 1.03,
+        scale: 1.02,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -152,7 +152,7 @@ const WhyChooseUs: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <section className="py-24">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Spline 3D Component - Left Side (Only on Desktop) */}

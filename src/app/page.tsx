@@ -6,7 +6,6 @@ import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -40,7 +39,7 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Main Content */}
       <main className="relative z-10 pt-20">

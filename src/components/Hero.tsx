@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="px-6 py-16 md:px-12 lg:px-24 relative overflow-hidden"
+      className="px-6 py-16 md:px-12 lg:px-24 relative overflow-hidden theme-transition"
       aria-label="Hero section"
     >
       <div className="max-w-7xl mx-auto">
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
             variants={containerVariants}
           >
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight theme-transition"
               variants={itemVariants}
             >
               <span className="sr-only">SoftSell - </span>
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8"
+              className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 theme-transition"
               variants={itemVariants}
             >
               SoftSell helps businesses recover costs on unused software by
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
               >
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 text-lg font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl dark:bg-blue-700 dark:hover:bg-blue-600"
+                  className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl theme-transition"
                   aria-label="Get Started with SoftSell"
                 >
                   Get Started <span className="ml-2" aria-hidden="true">→</span>
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
               >
                 <a
                   href="#how-it-works"
-                  className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 text-lg font-medium text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-all duration-300 theme-transition"
                   aria-label="Learn how SoftSell works"
                 >
                   How it works?
@@ -145,7 +145,7 @@ const Hero: React.FC = () => {
                 <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-4 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(34,197,94,0.5)] group-hover:bg-green-200 dark:group-hover:bg-green-800/40" aria-hidden="true">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-green-600 transition-all duration-300 group-hover:text-green-700 dark:group-hover:text-green-400"
+                    className="h-6 w-6 text-green-600 dark:text-green-400 transition-all duration-300 group-hover:text-green-700 dark:group-hover:text-green-300"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -161,8 +161,8 @@ const Hero: React.FC = () => {
                 </div>
                 <dl>
                   <dt className="sr-only">Resold License Value</dt>
-                  <dd className="font-bold text-xl text-white">$25M+</dd>
-                  <dd className="text-gray-500 dark:text-gray-400 text-sm">
+                  <dd className="font-bold text-xl text-gray-800 dark:text-white theme-transition">$25M+</dd>
+                  <dd className="text-gray-600 dark:text-gray-400 text-sm theme-transition">
                     Resold License Value
                   </dd>
                 </dl>
@@ -188,8 +188,8 @@ const Hero: React.FC = () => {
                 </div>
                 <dl>
                   <dt className="sr-only">Supported Vendors</dt>
-                  <dd className="font-bold text-xl text-white">100+</dd>
-                  <dd className="text-gray-500 dark:text-gray-400 text-sm">
+                  <dd className="font-bold text-xl text-gray-800 dark:text-white theme-transition">100+</dd>
+                  <dd className="text-gray-600 dark:text-gray-400 text-sm">
                     Supported Vendors
                   </dd>
                 </dl>
@@ -215,8 +215,8 @@ const Hero: React.FC = () => {
                 </div>
                 <dl>
                   <dt className="sr-only">Payout Success Rate</dt>
-                  <dd className="font-bold text-xl text-white">98%</dd>
-                  <dd className="text-gray-500 dark:text-gray-400 text-sm">
+                  <dd className="font-bold text-xl text-gray-800 dark:text-white theme-transition">98%</dd>
+                  <dd className="text-gray-600 dark:text-gray-400 text-sm">
                     Payout Success Rate
                   </dd>
                 </dl>
@@ -237,14 +237,14 @@ const Hero: React.FC = () => {
                 alt="SoftSell application interface showing license management dashboard"
                 width={500}
                 height={900}
-                className="object-contain"
+                className="object-contain theme-transition"
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 500px"
               />
 
               {/* Decorative elements with aria-hidden */}
-              <div className="absolute -top-6 -right-6 w-12 h-12 text-gray-300 dark:text-gray-600" aria-hidden="true">
+              <div className="absolute -top-6 -right-6 w-12 h-12 text-gray-400 dark:text-gray-600 theme-transition" aria-hidden="true">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -260,7 +260,7 @@ const Hero: React.FC = () => {
                 </svg>
               </div>
 
-              <div className="absolute -bottom-6 -left-6 w-12 h-12 text-gray-300 dark:text-gray-600" aria-hidden="true">
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 text-gray-400 dark:text-gray-600 theme-transition" aria-hidden="true">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -285,15 +285,15 @@ const Hero: React.FC = () => {
 
       {/* Background Elements with reduced-motion preference support and performance optimizations */}
       <div
-        className="absolute top-1/4 right-0 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob motion-reduce:animate-none transform-gpu will-change-transform"
+        className="absolute top-1/4 right-0 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-5 dark:opacity-10 animate-blob motion-reduce:animate-none transform-gpu will-change-transform theme-transition"
         aria-hidden="true"
       ></div>
       <div
-        className="absolute top-1/3 left-0 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000 motion-reduce:animate-none transform-gpu will-change-transform"
+        className="absolute top-1/3 left-0 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-5 dark:opacity-10 animate-blob animation-delay-2000 motion-reduce:animate-none transform-gpu will-change-transform theme-transition"
         aria-hidden="true"
       ></div>
       <div
-        className="absolute bottom-1/2 right-1/4 w-56 h-56 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000 motion-reduce:animate-none transform-gpu will-change-transform"
+        className="absolute bottom-1/2 right-1/4 w-56 h-56 bg-pink-400 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-5 dark:opacity-10 animate-blob animation-delay-4000 motion-reduce:animate-none transform-gpu will-change-transform theme-transition"
         aria-hidden="true"
       ></div>
     </section>

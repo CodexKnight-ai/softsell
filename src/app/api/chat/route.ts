@@ -18,13 +18,6 @@ Be helpful, professional, and concise in your responses.`;
 
 export async function POST(req: NextRequest) {
   try {
-    console.log('Environment variables:', {
-      NODE_ENV: process.env.NODE_ENV,
-      GEMINI_API_KEY_EXISTS: !!process.env.GEMINI_API_KEY,
-      GEMINI_API_KEY_LENGTH: process.env.GEMINI_API_KEY?.length,
-      GEMINI_API_KEY_PREFIX: process.env.GEMINI_API_KEY?.substring(0, 5)
-    });
-
     const { messages } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
