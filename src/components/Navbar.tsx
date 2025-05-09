@@ -68,12 +68,6 @@ const Navbar: React.FC = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          <Link
-            href="#"
-            className="px-5 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
-          >
-            Sign In
-          </Link>
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

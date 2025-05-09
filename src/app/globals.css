@@ -62,25 +62,36 @@ body {
 }
 
 /* Blob animations - optimized for performance */
-@keyframes blob {
-  0% {
-    transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1);
+/* Only show blob animations on desktop for better performance */
+@media (min-width: 1024px) {
+  @keyframes blob {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    33% {
+      transform: translate(20px, -30px);
+    }
+    66% {
+      transform: translate(-15px, 15px);
+    }
   }
-  33% {
-    transform: translate3d(30px, -50px, 0) scale3d(1.1, 1.1, 1);
-  }
-  66% {
-    transform: translate3d(-20px, 20px, 0) scale3d(0.9, 0.9, 1);
-  }
-  100% {
-    transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1);
+
+  .animate-blob {
+    animation: blob 10s infinite ease-in-out;
+    will-change: transform;
+    transform: translateZ(0); /* Force GPU acceleration */
+    opacity: 0.08; /* Reduced opacity for better performance */
   }
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
-  will-change: transform;
-  transform: translateZ(0); /* Force GPU acceleration */
+/* Simplified blobs for mobile */
+@media (max-width: 1023px) {
+  .animate-blob {
+    opacity: 0.05; /* Even more reduced opacity on mobile */
+    transform: translateZ(0);
+    /* No animation on mobile for better performance */
+    animation: none;
+  }
 }
 
 .animation-delay-2000 {
@@ -91,13 +102,28 @@ body {
   animation-delay: 4s;
 }
 
-/* Gradient text animation - optimized */
-@keyframes gradient-text {
-  0%, 100% {
-    background-position: 0% 50%;
+/* Gradient text animation - optimized and only on desktop */
+@media (min-width: 1024px) {
+  @keyframes gradient-text {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
-  50% {
-    background-position: 100% 50%;
+
+  .gradient-text {
+    animation: gradient-text 8s ease infinite;
+    will-change: background-position;
+  }
+}
+
+/* Disable gradient animation on mobile for better performance */
+@media (max-width: 1023px) {
+  .gradient-text {
+    background-position: 0% 50% !important;
+    animation: none !important;
   }
 }
 
@@ -118,47 +144,107 @@ body {
   transform: translateZ(0);
 }
 
-/* Custom cursor effects */
+/* Additional performance optimizations */
+.content-visibility-auto {
+  content-visibility: auto;
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Spline component fixes */
+.spline-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.spline-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+/* Fix for Spline component to ensure it's fully visible */
+[data-spline-canvas="true"] {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Optimize animations */
+@media (max-width: 1023px) {
+  /* Disable most animations on mobile */
+  .animate-on-desktop {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  /* Simplify transitions on mobile */
+  .transition-mobile-optimize {
+    transition-duration: 0.2s !important;
+    transition-property: opacity !important;
+  }
+}
+
+/* Custom cursor effects - optimized for performance */
 .glow-cursor-container {
   position: relative;
   cursor: none;
   overflow: hidden;
 }
 
-.glow-cursor {
-  width: 30px;
-  height: 30px;
-  background: rgba(37, 99, 235, 0.4); /* More blue shade */
-  border-radius: 50%;
-  position: absolute;
-  pointer-events: none;
-  mix-blend-mode: screen;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  transition: width 0.2s, height 0.2s, opacity 0.3s, transform 0.05s linear;
-  filter: blur(8px); /* Increased blur for dim light effect */
-  opacity: 0;
-  box-shadow: 0 0 15px 5px rgba(37, 99, 235, 0.2); /* Subtle outer glow */
+/* Only show glow cursor on desktop devices for better performance */
+@media (min-width: 1024px) {
+  .glow-cursor {
+    width: 30px;
+    height: 30px;
+    background: rgba(37, 99, 235, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    /* Optimized transitions for better performance */
+    transition: opacity 0.2s ease-out, transform 0.05s linear;
+    /* Use will-change for GPU acceleration */
+    will-change: transform, opacity;
+    filter: blur(6px); /* Reduced blur for better performance */
+    opacity: 0;
+    /* Simplified box-shadow for better performance */
+    box-shadow: 0 0 12px 4px rgba(37, 99, 235, 0.2);
+  }
+
+  .glow-cursor.active {
+    width: 40px; /* Reduced size for better performance */
+    height: 40px;
+    background: rgba(37, 99, 235, 0.5);
+    opacity: 1;
+    box-shadow: 0 0 15px 5px rgba(37, 99, 235, 0.25);
+  }
+
+  .dark .glow-cursor {
+    background: rgba(59, 130, 246, 0.4);
+    mix-blend-mode: lighten;
+    box-shadow: 0 0 12px 4px rgba(59, 130, 246, 0.2);
+  }
+
+  .dark .glow-cursor.active {
+    background: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.25);
+  }
 }
 
-.glow-cursor.active {
-  width: 50px;
-  height: 50px;
-  background: rgba(37, 99, 235, 0.5); /* More blue shade when active */
-  opacity: 1;
-  box-shadow: 0 0 20px 8px rgba(37, 99, 235, 0.3); /* Enhanced outer glow when active */
-}
-
-.dark .glow-cursor {
-  background: rgba(59, 130, 246, 0.4); /* Slightly brighter blue in dark mode */
-  mix-blend-mode: lighten;
-  box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.2);
-}
-
-.dark .glow-cursor.active {
-  background: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 20px 8px rgba(59, 130, 246, 0.3);
+/* Hide glow cursor completely on mobile */
+@media (max-width: 1023px) {
+  .glow-cursor {
+    display: none !important;
+  }
 }
 
 /* Step number and connector styles */
