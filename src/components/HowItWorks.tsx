@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface StepProps {
@@ -11,28 +11,53 @@ interface StepProps {
 }
 
 const Step: React.FC<StepProps> = ({ icon, title, description, stepNumber }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const stepRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (cursorRef.current && stepRef.current) {
+      const rect = stepRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Use transform for better performance and smoother animation
+      cursorRef.current.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    }
+  };
+
   return (
     <motion.div
-      className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 relative"
+      ref={stepRef}
+      className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 relative glow-cursor-container overflow-visible"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.5, 
+      transition={{
+        duration: 0.5,
         delay: stepNumber * 0.2,
-        ease: "easeOut" 
+        ease: "easeOut"
       }}
       viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ 
+      whileHover={{
         scale: 1.03,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
     >
+      {/* Custom Cursor */}
+      <div
+        ref={cursorRef}
+        className={`glow-cursor ${isHovered ? 'active' : ''}`}
+      />
+
       {/* Step Number Badge */}
-      <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-sm">
+      <div className=" relative -top-4 -left-2 w-8 h-8 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-sm z-20">
         {stepNumber}
       </div>
-      
-      <div className="flex flex-col items-start">
+
+      <div className="flex flex-col items-start relative z-10">
         <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-2xl mb-6 text-blue-600 dark:text-blue-400">
           {icon}
         </div>
@@ -53,14 +78,14 @@ const HowItWorks: React.FC = () => {
       title: "Upload License",
       description: "Easily upload your unused software licenses in seconds.",
       icon: (
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="w-8 h-8" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
           strokeLinejoin="round"
         >
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -73,14 +98,14 @@ const HowItWorks: React.FC = () => {
       title: "Get Valuation",
       description: "We assess and provide real-time market valuations.",
       icon: (
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="w-8 h-8" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
           strokeLinejoin="round"
         >
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -96,14 +121,14 @@ const HowItWorks: React.FC = () => {
       title: "Get Paid",
       description: "Receive fast payouts via secure transactions.",
       icon: (
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="w-8 h-8" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
           strokeLinejoin="round"
         >
           <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -144,8 +169,8 @@ const HowItWorks: React.FC = () => {
           >
             Simple Process
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -154,8 +179,8 @@ const HowItWorks: React.FC = () => {
           >
             How It Works
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -168,8 +193,8 @@ const HowItWorks: React.FC = () => {
 
         <div className="relative">
           <StepConnector />
-          
-          <motion.div 
+
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 relative z-10"
             variants={containerVariants}
             initial="hidden"

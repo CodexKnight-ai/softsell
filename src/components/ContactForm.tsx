@@ -170,7 +170,7 @@ const ContactForm: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Have questions about selling your software licenses? We're here to help.
+            Have questions about selling your software licenses? We&apos;re here to help.
           </motion.p>
         </div>
 
@@ -194,7 +194,7 @@ const ContactForm: React.FC = () => {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Thank You!</h3>
-              <p className="text-gray-600 dark:text-gray-300">Your message has been sent successfully. We'll get back to you shortly.</p>
+              <p className="text-gray-600 dark:text-gray-300">Your message has been sent successfully. We&apos;ll get back to you shortly.</p>
             </motion.div>
           ) : (
             <motion.form 
