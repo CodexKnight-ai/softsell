@@ -4,13 +4,12 @@ import { useEffect } from "react";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
-import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
-  // Add smooth scrolling for anchor links
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -20,7 +19,7 @@ export default function Home() {
         const element = document.getElementById(id || '');
         if (element) {
           window.scrollTo({
-            top: element.offsetTop - 80, // Adjust for navbar height
+            top: element.offsetTop - 80, 
             behavior: 'smooth'
           });
         }
@@ -67,7 +66,7 @@ export default function Home() {
 
         {/* Contact Form Section */}
         <section id="contact">
-          <ContactForm />
+          <ContactSection />
         </section>
       </main>
 

@@ -201,7 +201,7 @@ const WhyChooseUs: React.FC = () => {
                 viewport={{ once: true }}
                 className="inline-block mb-3 px-4 py-1 bg-blue-50 dark:bg-blue-900/30 rounded-full text-blue-600 dark:text-blue-400 text-sm font-medium"
               >
-                Why SoftSell
+                Why SoftSell ?
               </motion.div>
 
               <motion.h2

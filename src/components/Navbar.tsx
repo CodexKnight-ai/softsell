@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ThemeToggle } from './ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,7 +66,6 @@ const Navbar: React.FC = () => {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center space-x-4">
-          <ThemeToggle />
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -132,10 +130,6 @@ const Navbar: React.FC = () => {
               Contact
             </Link>
             <div className="pt-4 flex flex-col space-y-3">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Theme</span>
-                <ThemeToggle />
-              </div>
               <Link
                 href="#"
                 className="px-5 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors text-center border border-gray-200 dark:border-gray-700 rounded-full"

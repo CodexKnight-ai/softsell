@@ -19,24 +19,11 @@ const ChatBot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [unreadMessages, setUnreadMessages] = useState(0);
 
-  // Load messages from localStorage on component mount
+  // Clear messages when the component mounts (page refresh)
   useEffect(() => {
-    const savedMessages = localStorage.getItem('chatMessages');
-    if (savedMessages) {
-      try {
-        setMessages(JSON.parse(savedMessages));
-      } catch (error) {
-        console.error('Error parsing saved messages:', error);
-      }
-    }
+    // Reset messages to empty array on page load/refresh
+    setMessages([]);
   }, []);
-
-  // Save messages to localStorage when they change
-  useEffect(() => {
-    if (messages.length > 0) {
-      localStorage.setItem('chatMessages', JSON.stringify(messages));
-    }
-  }, [messages]);
 
   // Track unread messages when chat is closed
   useEffect(() => {
@@ -56,7 +43,27 @@ const ChatBot: React.FC = () => {
   }, [isOpen]);
 
   const toggleChat = () => {
+    // If we're closing the chat, clear the messages
+    if (isOpen) {
+      setMessages([]);
+      setUnreadMessages(0);
+    }
     setIsOpen(!isOpen);
+  };
+
+  const handleFaqSelect = async (question: string) => {
+    if (isLoading) return;
+
+    const userMessage: Message = {
+      role: 'user',
+      content: question,
+      id: uuidv4(),
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setIsLoading(true);
+
+    await processUserMessage(userMessage);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -74,6 +81,10 @@ const ChatBot: React.FC = () => {
     setInputValue('');
     setIsLoading(true);
 
+    await processUserMessage(userMessage);
+  };
+
+  const processUserMessage = async (userMessage: Message) => {
     try {
       // Format messages for API
       const apiMessages = [...messages, userMessage].map(({ role, content }) => ({
@@ -181,6 +192,7 @@ const ChatBot: React.FC = () => {
         setInputValue={setInputValue}
         handleSubmit={handleSubmit}
         isLoading={isLoading}
+        handleFaqSelect={handleFaqSelect}
       />
     </>
   );

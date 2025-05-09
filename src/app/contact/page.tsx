@@ -1,5 +1,11 @@
 import React from 'react';
-import ContactForm from '@/components/ContactForm';
+import ContactSection from '@/components/ContactSection';
+
+export const metadata = {
+  title: 'Contact SoftSell | Get in Touch with Our Team',
+  description: 'Contact SoftSell for questions about selling your unused software licenses. Our team is ready to help you recover costs quickly and securely.',
+  keywords: 'contact, software license resale, SoftSell, license valuation, software marketplace',
+};
 
 export default function ContactPage() {
   return (
@@ -23,12 +29,12 @@ export default function ContactPage() {
           </nav>
         </div>
       </header>
-      
+
       {/* Main Content */}
       <main>
-        <ContactForm />
+        <ContactSection />
       </main>
-      
+
       {/* Simple Footer */}
       <footer className="py-12 px-8 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto text-center">

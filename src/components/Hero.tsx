@@ -10,7 +10,6 @@ const Hero: React.FC = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const controls = useAnimation();
 
-  // Trigger animations only when section is in view
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
@@ -162,7 +161,7 @@ const Hero: React.FC = () => {
                 </div>
                 <dl>
                   <dt className="sr-only">Resold License Value</dt>
-                  <dd className="font-bold text-xl group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors duration-300">$25M+</dd>
+                  <dd className="font-bold text-xl text-white">$25M+</dd>
                   <dd className="text-gray-500 dark:text-gray-400 text-sm">
                     Resold License Value
                   </dd>
@@ -189,7 +188,7 @@ const Hero: React.FC = () => {
                 </div>
                 <dl>
                   <dt className="sr-only">Supported Vendors</dt>
-                  <dd className="font-bold text-xl group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors duration-300">100+</dd>
+                  <dd className="font-bold text-xl text-white">100+</dd>
                   <dd className="text-gray-500 dark:text-gray-400 text-sm">
                     Supported Vendors
                   </dd>
@@ -216,7 +215,7 @@ const Hero: React.FC = () => {
                 </div>
                 <dl>
                   <dt className="sr-only">Payout Success Rate</dt>
-                  <dd className="font-bold text-xl group-hover:text-yellow-700 dark:group-hover:text-yellow-400 transition-colors duration-300">98%</dd>
+                  <dd className="font-bold text-xl text-white">98%</dd>
                   <dd className="text-gray-500 dark:text-gray-400 text-sm">
                     Payout Success Rate
                   </dd>
