@@ -14,7 +14,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={handleClick}
-      className="relative p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 shadow-sm hover:shadow-md"
+      className="relative p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 shadow-sm hover:shadow-md theme-transition"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
     >
       <div className="relative w-5 h-5">
@@ -26,7 +26,7 @@ export default function ThemeToggle() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-5 h-5 text-blue-600 dark:text-white"
           >
             <path
               strokeLinecap="round"
@@ -42,7 +42,7 @@ export default function ThemeToggle() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-5 h-5 text-blue-600 dark:text-white"
           >
             <path
               strokeLinecap="round"

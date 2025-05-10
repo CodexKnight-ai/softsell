@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
+import React, { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,9 +19,9 @@ const Navbar: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -28,17 +29,34 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleWhyUsClick = useCallback(() => {
+    const section = document.getElementById("why-us");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm py-3'
-          : 'bg-transparent py-5'
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm py-3"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="px-6 md:px-12 lg:px-24 flex justify-between items-center max-w-7xl mx-auto">
         <div className="flex items-center">
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 text-transparent bg-clip-text">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-2xl font-bold text-blue-600 dark:text-blue-400"
+          >
+            <Image
+              src="/logo.png"
+              alt="SoftSell Logo"
+              width={32}
+              height={32}
+              className="w-8 h-8 object-contain"
+            />
             SoftSell
           </Link>
         </div>
@@ -47,19 +65,25 @@ const Navbar: React.FC = () => {
         <nav className="hidden md:flex space-x-8">
           <Link
             href="#how-it-works"
-            className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+            className="text-blue-700 dark:text-white hover:text-blue-500 dark:hover:text-gray-300 transition-colors"
           >
             How It Works
           </Link>
           <Link
+            href="#why-us"
+            className="text-blue-700 dark:text-white hover:text-blue-500 dark:hover:text-gray-300 transition-colors"
+          >
+            Why Us
+          </Link>
+          <Link
             href="#testimonials"
-            className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+            className="text-blue-700 dark:text-white hover:text-blue-500 dark:hover:text-gray-300 transition-colors"
           >
             Testimonials
           </Link>
           <Link
             href="#contact"
-            className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+            className="text-blue-700 dark:text-white hover:text-blue-500 dark:hover:text-gray-300 transition-colors"
           >
             Contact
           </Link>
@@ -68,10 +92,7 @@ const Navbar: React.FC = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="#contact"
               className="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors dark:bg-blue-700 dark:hover:bg-blue-600"
@@ -84,17 +105,39 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="md:hidden text-blue-600 dark:text-white focus:outline-none"
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
         >
           {isMobileMenuOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-6 h-6 text-blue-600 dark:text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="w-6 h-6 text-blue-600 dark:text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           )}
         </button>
@@ -105,7 +148,7 @@ const Navbar: React.FC = () => {
         <motion.div
           className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
+          animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
@@ -116,6 +159,13 @@ const Navbar: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               How It Works
+            </Link>
+            <Link
+              href="#why-us"
+              className="block text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Why Us
             </Link>
             <Link
               href="#testimonials"
@@ -135,13 +185,6 @@ const Navbar: React.FC = () => {
               <div className="flex justify-center mb-2">
                 <ThemeToggle />
               </div>
-              <Link
-                href="#"
-                className="px-5 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors text-center border border-gray-200 dark:border-gray-700 rounded-full"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Sign In
-              </Link>
               <Link
                 href="#contact"
                 className="px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors dark:bg-blue-700 dark:hover:bg-blue-600 text-center"
