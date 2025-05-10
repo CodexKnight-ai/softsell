@@ -167,8 +167,8 @@ const WhyChooseUs: React.FC = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-900/20 dark:to-indigo-900/20 p-8 rounded-2xl flex items-center justify-center h-[400px]">
-                <div className="text-center">
+              <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 sm:p-8 rounded-2xl flex items-center justify-center min-h-[300px] sm:h-[400px]">
+                <div className="text-center px-4">
                   <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

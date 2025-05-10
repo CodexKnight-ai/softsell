@@ -202,6 +202,21 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Attribution */}
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 text-center">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Designed and developed by{" "}
+            <a
+              href="https://www.linkedin.com/in/subrat-jain-70078b267"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
+            >
+              Subrat Jain
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
