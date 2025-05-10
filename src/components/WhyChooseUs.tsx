@@ -2,23 +2,13 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
 import {
   FastPayoutIcon,
   SecureIcon,
   SupportIcon,
   MarketplaceIcon
 } from './icons';
-
-// Dynamically import Spline with no SSR to avoid hydration issues and improve initial load time
-const Spline = dynamic(() => import('@splinetool/react-spline'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[700px] flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-2xl">
-      <div className="animate-pulse text-blue-600 dark:text-blue-400">Loading 3D model...</div>
-    </div>
-  )
-});
+import Spline from '@splinetool/react-spline';
 
 interface FeatureCardProps {
   title: string;
@@ -33,7 +23,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   icon,
   index
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
 
