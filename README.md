@@ -149,20 +149,20 @@ yarn start
 
 ## 📸 Screenshots
 
-### Desktop View
-![SoftSell Homepage - Desktop](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/desktop.png)
+### 🖥️ Desktop View
+![SoftSell Homepage - Desktop](https://raw.githubusercontent.com/CodexKnight-ai/softsell/main/public/desktop.png)
 *Homepage with hero section and animated elements*
 
-### Mobile View
-![SoftSell Mobile Navigation](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/mobile.png)
+### 📱 Mobile View
+![SoftSell Mobile Navigation](https://raw.githubusercontent.com/CodexKnight-ai/softsell/main/public/phone.png)
 *Responsive mobile navigation and layout*
 
-### Light Mode
-![SoftSell Light Mode](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/lightmode.png)
+### ☀️ Light Mode
+![SoftSell Light Mode](https://raw.githubusercontent.com/CodexKnight-ai/softsell/main/public/lightmode.png)
 *Light mode theme*
 
-### 3D Spline component
-![SoftSell 3D Spline Mockup](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/mockup.png)
+### 🧊 3D Spline Component
+![SoftSell 3D Spline Mockup](https://raw.githubusercontent.com/CodexKnight-ai/softsell/main/public/mockup.png)
 *3D Spline component in action*
 
 ## ⏱️ Time Spent
