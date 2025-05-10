@@ -150,19 +150,19 @@ yarn start
 ## 📸 Screenshots
 
 ### Desktop View
-![SoftSell Homepage - Desktop](https://res-console.cloudinary.com/dvhcrdl4b/thumbnails/v1/image/upload/v1746875960/U2NyZWVuc2hvdF8yMDI1LTA1LTEwXzE2MzkzMl9lNnN3bWg=/drilldown)
+![SoftSell Homepage - Desktop](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/desktop.png)
 *Homepage with hero section and animated elements*
 
 ### Mobile View
-![SoftSell Mobile Navigation](https://res-console.cloudinary.com/dvhcrdl4b/thumbnails/v1/image/upload/v1746875960/U2NyZWVuc2hvdF8yMDI1LTA1LTEwXzE2Mzk1NV9mMDJ5MWU=/drilldown)
+![SoftSell Mobile Navigation](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/mobile.png)
 *Responsive mobile navigation and layout*
 
 ### Light Mode
-![SoftSell Light Mode](https://res-console.cloudinary.com/dvhcrdl4b/thumbnails/v1/image/upload/v1746875962/U2NyZWVuc2hvdF8yMDI1LTA1LTEwXzE2NDEwNV95aWNxcXo=/drilldown)
+![SoftSell Light Mode](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/lightmode.png)
 *Light mode theme*
 
 ### 3D Spline component
-![SoftSell 3D Spline Mockup](https://res-console.cloudinary.com/dvhcrdl4b/thumbnails/v1/image/upload/v1746875961/U2NyZWVuc2hvdF8yMDI1LTA1LTEwXzE2NDAyOF9hbGRjcWI=/drilldown)
+![SoftSell 3D Spline Mockup](https://raw.githubusercontent.com/CodexKnight-ai/softsell/public/mockup.png)
 *3D Spline component in action*
 
 ## ⏱️ Time Spent
